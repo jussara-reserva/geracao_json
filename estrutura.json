@@ -1,0 +1,11 @@
+{
+    paises: [
+        {id: 0, nome: XXX, localizacoes: [
+            {endereco: XXX, cidade: XXX, departamentos: [
+                {id: 00, nome: XXX, gerente: XXX, empregados: [
+                    {id: 000, nome: XXX, cargo: XXX, salario: 0}
+                ]}
+            ]}
+        ]}
+    ]
+}
