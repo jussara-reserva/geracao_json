@@ -1,15 +1,13 @@
+# pip install cx_Oracle
 import cx_Oracle # Biblioteca responsável por conectar o Python ao Oracle DB
 import json # Bibilioteca responsável por formatar arquivos json
+import db_config # Credenciais de acesso ao DB
 
 # Setar a instância do cliente Oracle 32-bits
 cx_Oracle.init_oracle_client(lib_dir=r"C:\oracle\instantclient_19_6")
 
 # Credenciais de acesso ao DB hr
-user = "hr"
-password = "hr"
-db = "localhost/xepdb1"
-
-connection = cx_Oracle.connect(user, password, db) # Criando a conexão com o DB
+connection = cx_Oracle.connect(db_config.user, db_config.password, db_config.db) # Criando a conexão com o DB
 cursor = connection.cursor() # Setando um cursor
 
 # print("Database version: ", connection.version) # Verificando se a conexão foi realizada
@@ -109,7 +107,7 @@ def escrever_arquivo(dicPaises):
 
     # Cria o arquivo (ou apenas abre, caso já exista) no modo de escrita 'w', que substitui os dados no arquivo caso já possua
     with open('dados.json', 'w') as arquivo:
-        json.dump(dicPaises, arquivo, indent = 4)
+        json.dump(dicPaises, arquivo, indent = 2)
         
 
 dicPaises = criar_dicionario(cursor)
